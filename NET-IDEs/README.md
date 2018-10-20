@@ -18,9 +18,7 @@ The following pieces of software are required to build and run this slide deck:
 
 Assuming that you have a terminal open in the root of the repo:
 
-1. `npm install -g yarn`
-1. `npm install -g grunt`
-1. `yarn install`
-1. `grunt serve`
+1. `npm ci`
+1. `npm start`
 
 A web browser should open, point at [localhost:5500](localhost:5500/), and the slide deck will be available to view.
