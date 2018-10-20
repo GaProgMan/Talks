@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>.NET IDEs</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						### .NET IDEs
+
+						![Jamie](images/jamie.jpg)
+						
+						Jamie Taylor <br/>
+						@dotnetcoreblog <br/>
+						https://github.com/GaProgMan/.NET-IDEs
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Visual Studio
+
+						![VS](images/VS.png)
+						
+						- Do I _really_ need to explain what this is?
+						- Are you ok with crashes every 10 minutes?
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Rider
+
+						![Rider](images/Rider.png)
+
+						- Do you _need_ R#er?
+						- NuGet is cached locally: faster builds
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### CLI and a text editor
+
+						![Rider](images/cli.jpg)
+
+						- Do you know your `cd` from your `rm`?
+						- Are you willing to learn the (very small yet powerful) list of commands?
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### VS Code
+
+						![VS Code](images/VSCode.png)
+
+						- Do you want none of the features of R#er?
+						- And do you have more RAM than a super computer?
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
