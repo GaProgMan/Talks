@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<textarea data-template>
+						### An Intro On HTTP Security
+						#### How Not To Get Hacked
+
+						Jamie Taylor
+
+						![Jamie](images/jamie.jpg)
+						
+						@dotnetcoreblog <br/>
+						https://github.com/gaprogman/
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### What This Talk Is Not
+
+						![Jamie](images/no.jpg)
+
+						Hopefully too technical. <br />
+						Aim: practical advice that anyone can use <br/>
+
+						<span id="photo-credit">
+							Photo by <a href="https://unsplash.com/@stayandroam">Gemma Evans</a> on <a href="https://unsplash.com/photos/zj475haUy2M">Unsplash</a>
+						</span>
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Plugins
+
+						![Charles Emmerson-Winchester III](images/winchester.jpg)
+
+						> I do one thing at a time. I do it very well. And then I move on
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Single Responsibility Principle
+	
+							![Jamie](images/srp.jpg)
+	
+							<span id="photo-credit">
+								Photo by <a href="https://www.toptal.com/software/single-responsibility-principle">Adel Fayzrakhmanov</a> on <a href="https://www.toptal.com/">Toptal</a>
+							</span>
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Mult-Factor Auth
+
+						![Jamie](images/choice.jpg)
+
+						What is Authentication? <br/>
+						What is multi-factor authentication? <br />
+						Why do we need multi-factor? <br />
+
+						<span id="photo-credit">
+							Photo by <a href="https://unsplash.com/@olloweb">Agence Olloweb</a> on <a href="https://unsplash.com/photos/Z2ImfOCafFk">Unsplash</a>
+						</span>
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Single Factor
+
+						![Jamie](images/password.jpg)
+
+						<span id="photo-credit">
+							Photo by <a href="https://xkcd.com/936/">Correct Horse</a> on <a href="https://xkcd.com/">XKCD</a>
+						</span>
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Two Factors
+
+						![Jamie](images/authy.jpg)
+
+						<span id="photo-credit">
+							Photo by <a href="https://authy.com/">Authy</a>
+						</span>
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### What Is HTTP?
+
+						![Jamie](images/what.jpg)
+
+						<span id="photo-credit">
+							Photo by <a href="https://unsplash.com/photos/RUsczRV6ifY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jon Tyson</a> on <a href="/search/photos/question?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+						</span>
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Do You Mean HTTPS?
+
+						![security](images/security.jpg)
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### How Does HTTP Work?
+
+						![routing](images/routing-example.jpg)
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### And Now For a Visual
+
+						![empty-request-table](images/empty-request-table.jpg)
+
+						A ridiculous metaphor for how it actually works. <br/>
+						Like all metaphors it's not correct, but it'll do
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### HTTP Is NOT Secure
+
+						Literally anyone can see the messages sent <br />
+						Because that's how it was meant to work <br />
+						HTTP was invented before secure connections were required
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Another Contrived Visual
+
+						Not perfect, but it'll do <br />
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### I Don't Need HTTPS
+
+						Yes you do!
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### But HTTPS Hurts SEO!
+
+						No it does not <br/>
+						Google ranks HTTPS sites higher than HTTP sites
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### But HTTPS is Expensive!
+
+						No. Not it's not <br/>
+						[Extended Validation Certificates are Dead](https://www.troyhunt.com/extended-validation-certificates-are-dead/) by Troy Hunt
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### Let's Encrypt!
+
+						![]Let's Encrypt](/images/lets-encrypt.jpg)
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Requesting All The Things
+	
+							![dotnetcore-show-requests](images/example-requests.jpg)
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Always Use A Trusted Source
+	
+							```
+							<script
+							  src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+							```
+	
+							<p>If you don't read Javascript, <br/ >please get someone who can to double check it.</p>
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Verify The Source
+	
+							```
+							<script
+								src="http://code.jquery.com/jquery-3.3.1.min.js"
+								integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+								crossorigin="anonymous"></script>
+							```
+	
+							<p>`integrity` ensures that the JavaScript which <br/ >is loaded into the browser
+							hasn't been tampered with</p>
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Hacks in 2018 using This
+	
+							- Information Commissioners Office
+							- Several NHS Trusts
+							- UK Gov
+							- British Airways
+							- NewEgg
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Content Security Policy (CSP)
+	
+							- An HTTP Header
+							- A whitelist of trusted web addresses
+							- A whitelist of SHA-256 hashes
+							- If it aint on the list, it aint getting loaded
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Content Security Policy (CSP)
+	
+							![request-to-server](images/request-to-server.jpg)
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+							### Recommended Headers
+	
+							- Content Security Policy (CSP)
+							- HTTP Strict Transport Security (HSTS)
+							- X-Content-Type
+							- X-XSS-Protection
+							- Expect-CT
+							- Feature-Policy
+
+							Source: [OWASP Secure Headers Project](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#tab=Headers)
+						</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						![Jamie](images/twitter-avatar.png)
+						
+						- @dotnetcoreblog <br/>
+						- https://github.com/gaprogman/Http-Security-Intro <br/>
+						- will happily answer questions here, at the pub, or on twitter
+						- will link to slides to meetup page for this month
+					</textarea>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

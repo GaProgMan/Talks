@@ -1,0 +1,10 @@
+content-security-policy:
+    upgrade-insecure-requests;
+    default-src 'self';
+    connect-src 'self' https://cdn.jsdelivr.net https://api.unsplash.com;
+    script-src 'self' https://cdnjs.cloudflare.com https://code.jquery.com;
+    img-src 'self' https://pbs.twimg.com https://imagegen.podchaser.com https://*.unsplash.com https://casper.ghost.org https://*.gravatar.com;
+    style-src 'self'  https://cdnjs.cloudflare.com/ https://maxcdn.bootstrapcdn.com; 
+    frame-src 'self' https://html5-player.libsyn.com/;
+    font-src 'self' https://maxcdn.bootstrapcdn.com;
+    object-src 'none'
