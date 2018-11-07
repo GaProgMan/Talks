@@ -1,0 +1,764 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Blazor - You Want To Run .NET Where?!</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/timeline.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<textarea data-template>
+						### Blazor
+						#### You Want To Run .NET Where?!
+
+						Jamie Taylor
+
+						![Jamie](images/jamie.jpg)
+						
+						- [@dotnetcoreblog](https://twitter.com/dotnetcoreblog)
+						- [The .NET Core Podcast](https://dotnetcore.show/)
+
+						<aside class="notes">
+							To parts: <br />
+							- How we got here <br />
+							- What Blazor is <br />
+							The first bit wont take too long, honest
+						</aside>
+					</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Part One
+					#### In Which Doris Gets Her Oats
+
+					A little on the history of:
+					- HTML
+					- CSS
+					- JavaScript
+
+					<aside class="notes">
+						I wont take too long on this, honest. <br />
+						Also, this very attractive .NET Core and Waffling Taylors sticker combo goes to the first person who can tell me where the subtitle comes from <br />
+						There's a lot of stuff here; I'll probably skim over most of it. Feel free to pull down the deck and take a look for yourselves <br />
+						Make sure you check the notes by hitting S when viewing the slides
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### In the Beginning
+						#### There was HTML
+
+						- And it was static
+
+						<aside class="notes">
+							And everything was tables
+						</aside>
+					</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Space Jam
+						
+						![Space Jam Website screen shot](images/SpaceJam.jpg)
+
+						- Entire site is HTML
+
+						<aside class="notes">
+							Except that Warner Bros. know that folks go there a lot these days,
+							so the page has Google Analytics and Tag Manager embedded into it.
+						</aside>
+					</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### What about Styling?
+						
+						![Why we can't have nice things](images/Sorry.jpg)
+
+						- "Sorry, you're on your own"
+
+						<span class="photo-credit">[WWW Mailing List, Feb 17th, 1994](http://1997.webhistory.org/www.lists/www-talk.1994q1/0648.html)</span>
+					</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### You're Sorry?!
+						
+						![W3C Workshop on Stylesheets](images/WorkshopStyles.jpg)
+
+						<span class="photo-credit">[W3C Workshop on Style Sheets, Nov 6th-7th, 1995 ](https://www.w3.org/Style/951106_Workshop/)</span>
+					</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Then there was CSS
+						#### And It was... "supported"
+
+						- July 5th, 1996: Dolly the Sheep is cloned
+						- August 13th, 1996: Internet Explorer 3 "supports" css
+						- December 17th 1997: CSS Level 1 standard is ratified and released
+
+						<aside class="notes">
+							This was 9 months before Google was founded.<br/>
+							Does anyone else feel really old right now?
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Then there was JavaScript
+						#### And It was `NaN`
+
+						![Brandan Eich - Inventor of JS](images/BrandanEich.jpg)
+
+						- First release: May 10th, 1995
+						- Microsoft's version (JScript): August, 1996 (IE 3)
+
+						<aside class="notes">
+							"To defend the idea of JavaScript against competing proposals, the company needed a prototype. Eich wrote one in 10 days, in May 1995." <br />							
+							Not really his fault that all the browsers decided to implement their own versions of it <br />
+							Microsoft's JScript was slightly different and was meant to be "pluged into" classic ASP apps
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Don't Blame Eich
+						#### Blame it on the Browsers
+
+						- All browsers wanted in
+						- None of them created the same JS
+						  - Microsoft
+						  - Netscape
+						  - Mozilla
+						  - All were different 
+
+						<aside class="notes">
+							Mozilla was started by the folks who left Netscape <br />
+							They may or may not have taken a bunch of code with them and open sourced it <br />
+							Different sources have slightly different versions of that story
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Then Came the ECMA Standard
+						#### And nothing really changed
+
+						| Version  	|  Date Published 	|
+						|---	|---	|
+						|  1 	|  June, 1997 	|
+						|  2 	|  June, 1998 	|
+						|  3 	|  December, 1999 	|
+						|  4 	|  Adandoned 	|
+						|  5 	|  December, 2009 	|
+						|  5.1 	|  June, 2011 	|
+
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Yet more versions
+
+						| Version  	| A.K.A  	|  Date Published 	|
+						|---	|---	|---	|
+						|  6  	| (ES6/ES2015) 	|  June, 2015 	|
+						|  7 	| (ES2016) 	|  June, 2016 	|
+						|  8 	| (ES2017) 	|  June, 2017 	|
+						|  9 	| (ES2018) 	|  June, 2018 	|
+						
+						<aside class="notes">
+							At least you now know a little about when the different versions where released
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Then came jQuery
+						#### And the people rejoiced
+
+						- Initially created by John Resig
+						- August, 2016
+						- Ability to do most common things, regardless of browser
+						- Finally a JavaScript compat layer for all
+						- But it was massive
+						
+						<aside class="notes">
+							<table>
+								<thead>
+									<td>ver</td>
+									<td>prod</td>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1.x</td>
+										<td>90.9kb</td>
+									</tr>
+									<tr>
+										<td>2.x</td>
+										<td>81.6kb</td>
+									</tr>
+									<tr>
+										<td>3.x</td>
+										<td>86.3kb</td>
+									</tr>
+								</tbody>
+							</table>
+							AMP only allows 50kb of JavaScript to be loaded into a page, for example
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Then Came the UI Frameworks
+
+						- Bootstrap
+						- jQueryUi
+						- Angular Material
+						- etc.
+						- All need jQuery
+						
+						<aside class="notes">
+							Suddently we needed jQuery to do UI work
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Coming Soon!
+						#### JAVASCRIPT IN SPACE!
+
+						![Node.js on Satellites](images/NodeInSpace.jpg)
+
+						- Date: May 10, 2016
+						- `Array(16).join('wat' - 1) + ' Batman'`
+						  - Not even Batman can save you
+
+						<span class="photo-credit">https://www.reaktor.com/blog/node-js-satellite-means-anyone-can-space-programmer/</span>
+
+						<aside class="notes">
+							That's right. JavaScript on Satellites. What could go wrong?
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### We Want Type Safety!
+						#### Enter transpilers
+
+						- CoffeeScript
+						- LiveScript
+						- TypeScript
+						- ArnoldJs
+						- TrumpJs
+						
+						<aside class="notes">
+							The last two don't actually give type safety, but they can be fun to use
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Single Page Applications!
+						#### The Future of the Web
+
+						- Angular
+						- React
+						- Vue
+						- etc.
+						
+						<aside class="notes">
+							The SPA frameworks promised that making single page applications would be easy <br />
+							The downside: the client needs to download <em>lots of JS</em> <br />
+							Right or wrong, I've seen SPAs that require 20+ MB of JS to be downloaded before they would run <br />
+							They'd been minified and unglyfied, too <br />
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Dot NET Anywhere
+						#### The Original Design Goal of .NET Framework
+
+						- Chris Dunelm, August 2010
+						- Originally concieved as a way to get .NET to run in the browser
+						- Used WebAssembly
+						- Suddenly we had .NET in the browser
+						
+						<aside class="notes">
+							It was originally severly limited in what it could do <br />
+							It also required cross compilation of .NET to WebAssembly <br />
+							But once that was done, it loaded and ran in your browser <br />
+							As long as you had a modern (i.e not Microsoft browser) <br />
+							And didn't mind waiting for the DLLs to download <br />
+							It went nowhere
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Enter Steve Sanderson
+						#### What a Knockout
+
+						![Steve Sanderson](images/SteveSanderson.jpg)
+
+						- Originally created KnockoutJs
+						- Saw DotNetAnywhere and say
+						  - "Hang on a minute, there might just be something it"
+						  - Not a direct quote
+						
+						<aside class="notes">
+							He forked the repo and started working with it <br />
+							But there wasn't a Microsoft owned .NET implementation that was small enough to use
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Meanwhile:
+						#### Xamarin was busy being bought by Microsoft
+
+						- Suddenly they had this tiny .NET implementation
+						- It was written in C
+						  - Pretty darn good C, too
+						- It already powered the Unity3D game engine, too
+						- Why not x-compile it to WebAssembly
+						
+						<aside class="notes">
+
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Web Assembly
+
+						![WebAssembly Logo](/images/WebAssembly.jpg)
+						
+						<span class="photo-credit">Image source: [Wikipedia entry on WebAssembly](https://en.wikipedia.org/wiki/WebAssembly)</span>
+						<aside class="notes">
+							On the same weekend that Abstract Sausage Factory where busy losing Hack24 - Paul Seal know what I'm on about - Web Assembly was released <br />
+							WebAssembly is a runtime for running compiled applications in the browser <br />
+							The runtime sets up a similar Sanbox to JavaScript, and allows you to run binaries at near native speed <br />
+							Also, Mono was cross compiled to WebAssembly
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Part two
+						#### Enter: Blazor
+
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### But What _is_ Blazor?
+
+						- Imagine being able to do interactive UI work _without_ JavaScript
+						- Imagine being able to run .NET in the browser
+						- Imagine being able to render the DOM on the server
+						- _THAT_ is what Blazor is
+						- Also: Blazor = Browser + Razor
+						<aside class="notes">								
+						</aside>
+				</textarea>
+			</section>
+
+			<section id="timeline">
+				<ol>
+					<li>
+						<div>
+							<time>August, 2010</time> .NET Anywhere initial commit
+
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>March, 2017</time>Web Assembly 1.0 released
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>???</time>Steve Sanderson discovers .NET Anywhere
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>May 25<sup>th</sup>, 2017</time>Steve Sanderson Blazor initial commit
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>Summer, 2017</time>ASP.NET Core team hold an internal hackathon at Microsoft, working on Blazor
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>June, 2017</time>Steve Sanderson shows Blazor off at NDC Oslo
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>Sept 3<sup>rd</sup>, 2017</time>.NET Anywhere is abandoned
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>March 22<sup>nd</sup>, 2018</time>Public Preview Announced
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>March 27<sup>nd</sup>, 2018</time>I hosted an Internal hackathon/lab at work using Blazor
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>April 3<sup>rd</sup>, 2018</time>ASP.NET Community Standup showing off Blazor public preview
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>Sept 25<sup>th</sup>, 2018</time>The .NET Core Podcast - Episode 5: Blazor with Ed Charbeneau
+						</div>
+					</li>
+					<li>
+						<div>
+							<time>Oct 10<sup>th</sup>, 2018</time>ASP.NET Community Standup: The Blazor Show
+						</div>
+					</li>
+					<li>
+					</li>
+				</ol>
+				<div class="arrows">
+					<button class="arrow arrow__prev disabled" disabled>
+						<img class="plain" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
+					</button>
+					<button class="arrow arrow__next">
+						<img class="plain" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
+					</button>
+				</div>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### NDC Oslo 2017
+						#### Steve Sanderson drops a bomb
+
+						![Initial slide from Blazor announcement talk](images/SandersonTalk.jpg)
+
+						<span class="photo-credit">Source: [Web Apps can’t really do *that*, can they? - Steve Sanderson](https://www.youtube.com/watch?v=MiLAE6HMr10)</span>
+						<aside class="notes">
+							If you haven't seen this talk, I woudl definitely recommend it. <br/>
+							This was <em>huge</em>, as Steve showed off how you could load .NET stuff in the browser <br/>
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### But How Does it work?
+
+						- Tiny amount of JS loads Mono.wasm
+						- Mono.wasm sets up a Mono runtime in Web Assembly
+						- Mono runtime downloads the .NET DLLs for your app
+						- Your App is then booted
+						- Virtual DOM is used to mirror the real DOM
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### But DLLs are huge!
+
+						![Some DLLs are large](/images/HugeDlls.jpg)
+
+						- Before .NET Core 2.1 Preview => no IL shaking
+						- Since .NET Core 2.1 RC => IL shaking available
+						- Don't include 15MB of NuGet packages though
+
+						<span class="photo-credit">[Blazor WHOIS](https://blazor-whois.azurewebsites.net)</span>
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### IL Shaking?
+
+						![Some DLLs are large](/images/IlShaking.jpg)
+
+						- Really smart
+						- Looks at referenced DLLs
+						- RE-JITs them
+						- Servs Re-JIT'd versions in place
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Components
+
+						- Are cshtml files
+						- inline functions for properties and members
+						- `[Parameter]`
+						
+						```
+						<ChildComponent Title="Panel Title from Parent">
+						
+						</ChildComponent>
+						...
+						<!-- ChildComponent.cshtml-->
+						<div class="panel panel-success">
+							<div class="panel-heading">@Title</div>
+						</div>
+						@functions {
+							[Parameter]
+							private string Title { get; set; }
+						}
+						```
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Components == Razor?
+
+						- The Blazor components look a lot like Razor Pages, are they the same?
+						- [22 minutes and 47 seconds](https://www.youtube.com/watch?v=_b_fUq5DU0U)
+
+						<aside class="notes">
+							Have preview of `blazor-components-answer.md` loaded
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### What about rendering?
+
+						- Virtual DOM/Render Tree
+						- Components
+						- Client side, obvs
+						- Server side?! Really?
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Two Models for Rendering
+
+						![Rendering Models used by Blazor](/images/RenderModels.jpg)
+						<aside class="notes">
+							In Client Side:<br />
+							- Entire app is downloaded to the browser <br />
+							- Render Tree is created in the browser <br />
+							- User interactions cause Render Tree to update the DOM <br />
+							In Server Side: <br />
+							- Tiny HTML, CSS, and JS is downloaded <br />
+							- JS sets up a SignalR connection to the server <br />
+							- Server creates Render tree and mirrors DOM <br />
+							- Server renders the DOM and sends a delta through to Client
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Demo
+					#### Pokeblazor
+
+					- [PokeBlazor](https://pokeblazor.azurewebsites.net/)
+					- Uses the [PokéAPI](https://pokeapi.co/)
+					  - Open source API on all Pokemon
+					- Built in Blazor 0.3.0
+					
+					<aside class="notes">
+						Have the PokeBlazor open in VS Code and walk through it <br />
+						Use both 213 (Shuckle) and 104 (Cubone)
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### What Is Blazor Good At?
+
+						- Single Page Applications
+						- Esp. if there’s an API to talk to
+						- Totally RAD and epically Agile
+						- I’m building a blogging engine with it!
+						  - Am I mad?
+						  - Yes!
+						  - Will it work?
+						  - Maybe!
+						- [Bletris](https://sql-mistermagoo.github.io/bletris)
+						
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### Exceptional Exceptions
+
+						- Remember:
+						  - Your .NET code is running within WASM
+						- When an exception occurs:
+						  - Bubbles up to WASM
+						  - WASM converts it to a JS error
+						  - JS error is reported via mono.js
+						  - JS error is printed to the console
+						  - App continues to run
+						
+						<aside class="notes">
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Demo
+					#### ???
+
+					- Related to the festival
+					- Uses beta software
+					- Might not be 100% stable
+					
+					<aside class="notes">
+						Umbraco Headless x Blazor <br/ >
+						https://gaprogmans-affable-beaver.s1.umbraco.io/umbraco/#/ <br />
+						Have the UmBlazor open in VS Code and walk through it
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Sources
+					#### Where to get help, docs, and info
+
+					- [Blazor.net](https://blazor.net)
+					  - Official docs on Blazor
+					- [Blazor - StateHasChanged](https://www.twitch.tv/edcharbeneau)
+					  - Ed Charbeneau of Telerik talking through recent stuff
+					- [Episode 5 of The .NET Core Podcast](https://dotnetcore.show/episode-5-blazor-with-ed-charbeneau/)
+					  - I interviewed Ed about Blazor
+					- [Umbrcao Headless .NET Client](https://our.umbraco.com/documentation/Umbraco-Cloud/Headless/Headless-Net-Client/)
+					  - The docs I used to get UmBlazor up and running
+					- 
+					
+					<aside class="notes">
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Any Questions?
+					
+					<aside class="notes">
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Thank you so very much
+					#### You've all been wonderful
+
+					<span class="side-note">Can you tell it was my first time talking to a large audience?</span>
+					
+					<aside class="notes">
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						![Jamie](images/twitter-avatar.png)
+						
+						- [@dotnetcoreblog](https://twitter.com/dotnetcoreblog)
+						- [The .NET Core Podcast](https://dotnetcore.show/)
+						- will happily answer questions here, or on twitter
+					</textarea>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script src="js/timeline.js"></script>
+
+	<script>
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
