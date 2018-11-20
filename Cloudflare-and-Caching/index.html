@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cloudflare and Caching</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						### Cloudflare and Caching
+
+						![Jamie](images/jamie.jpg)
+						
+						Jamie Taylor <br/>
+						@dotnetcoreblog <br/>
+						https://github.com/GaProgMan/Talks/Cloudflare-and-Caching
+					</textarea>
+				</section>
+				<section id="caching-intro" data-markdown>
+					<textarea data-template>
+						### Caching
+
+						![Raphael complaining about cricket](./images/cricket.gif)
+
+						- That thing you need to clear when testing JavaScript changes
+						- Covered it before [in a blog post](https://dev.to/dotnetcoreblog/speeding-up-your-website--part-one-terminology-4l60)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### Routing on the Web
+
+						![Traditional routing](./images/spared-no-expense-1.jpg)
+
+						- [https://dotnetcore.show](https://dotnetcore.show/) is hosted in London
+						- 40% of traffic comes from the US
+
+						<aside class="notes">
+							Page loads (for US IP addresses) _before_ I did anything were around a second
+						</aside>
+					</textarea>
+				</section>
+
+				<section id="buncha-numbers" data-markdown>
+					<textarea data-template>
+						### What's Wrong With That?
+
+						|   |   |   |
+						|---|---|---|
+						| L1 cache reference  | 0.5 ns  |   |
+						| Branch mispredict  | 5 ns |   |
+						| L2 cache reference | 7 ns  | 14x L1 cache  |
+						| Send 1K bytes over 1 Gbps network | 10,000 ns (10 us) | |
+						| Round trip within same datacenter | 500,000 ns (500 us) | |
+						| Read 1 MB sequentially from disk | 20,000,000 ns (20,000 us) | |
+						| Send packet CA->Netherlands->CA | 150,000,000 ns (150,000 us or 150 ms) | |
+
+						- [Latency numbers that every programmer should understand](https://gist.github.com/jboner/2841832)
+
+						<aside class="notes">
+							These numbers are from 2012 <br/>
+							Lots of numbers, but 1MB is about 90 seconds of speech in MP3 at 128Kbps <br/>
+							L1 -> As quick as a it gets, how long it takes light to travel 6″ <br/>
+							1MB sequentially -> 2 million x slower than L1 <br/>
+							Packet -> 300 million times slower than L1 <br/>
+						</aside>
+					</textarea>
+				</section>
+
+				<section id="another-buncha-numbers" data-markdown>
+					<textarea data-template>
+						### But in Human terms
+
+						|   |   |   |
+						|---|---|---|
+						| L1 cache reference  | 0.5 s | One heart beat (0.5 s) |
+						| Branch mispredict  | 5 s | Yawn |
+						| L2 cache reference | 7 s  | Long yawn  |
+						| Send 1K bytes over 1 Gbps network | 5.5 hr | From lunch to end of work day |
+						| Round trip within same datacenter | 5.8 days | |
+						| Read 1 MB sequentially from disk | 11.6 days | |
+						| Send packet CA->Netherlands->CA | 4.8 years | Average time it takes me to answer a question |
+
+						- ["Humanised" Latency numbers that every programmer should understand](https://gist.github.com/hellerbarde/2843375)
+
+						<aside class="notes">
+							These numbers are from 2012 <br/>
+							Multiplying the previous numbers by 1 billion
+						</aside>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### Page Load Process
+
+						1.  Browser figures out where the server is (routing/DNS lookup)
+						2.  Browser asks the server for the HTML
+						3.  Server responds with the HTML
+						4.  Browser looks through the HTML for images, CSS, JavaScript, videos, etc.
+						5.  Browser asks the server for each of those files
+						6.  Browser starts downloading this files 
+						7.  While it's doing this, it starts to draw the web page for you
+						8.  Files are added to the page as they come back from the server
+					</textarea>
+
+					<aside class="notes">
+						Your browser can download files in parallel, but it's limited to around 5-10 at a time <br/>
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### Caching (redux)
+
+						- Once everyting is loaded, some of it is cached
+						- Next time you access the site, it can be loaded from the cache
+						- Great for files which don't change often
+						  - like images
+						- Not so much for stuff that changes often
+						  - like dev time JS
+						- Also has a size limit
+					</textarea>
+
+					<aside class="notes">
+						Your browser can download files in parallel, but it's limited to around 5-10 at a time <br/>
+						Different sources list the cache limit at between 350 MB and "unlimited" <br/>
+						Mobile users will be pretty upset if you break their phone because you've filled up their cache
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### What's Cloudflare Got To Do
+						#### Got To Do With It?
+
+						![Cloudflare example](./images/spared-no-expense-2.jpg)
+
+						- [https://dotnetcore.show](https://dotnetcore.show/) is hosted in London
+						- Cloudflare have a server farm in [Manchester](https://blog.cloudflare.com/manchester-uk-cloudflares-63rd-data-center/)
+					</textarea>
+
+					<aside class="notes">
+						Page loads (for US IP addresses) dropped to 400-600ms <br/>
+						That's complete page load and draw, btw <br/>
+						I'm leveraging a _lot_ of client and server side caching, too
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### A CD What?
+
+						![Cloudflare's Server Map](./images/cloudflare-server-map.jpg)
+
+						- Correct as of Nov, 2018
+						- Each blob is a server farm
+						- Each server farm has a cached copy of the website
+						- User get's the cached copy from the closest server farm
+					</textarea>
+
+					<aside class="notes">
+						US visitors get the latest cached version from a US server farm near them <br/>
+						As do folks in Japan, or Kuwait, or wherever <br/>
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### How Does It Work?
+
+						![Cloudflare Process in a nutshell](./images/spared-no-expense-3.jpg)
+
+						- Origin: the server that [https://dotnetcore.show/](https://dotnetcore.show/) is running on
+					</textarea>
+
+					<aside class="notes">
+						When the very first request for a page or resource at the site is sent, Cloudflare passes it to the origin <br/>
+						In this instance, Origin in the actual server which is running the site <br/>
+						On the return journey, the response is cached in Cloudflare's CDN <br/>
+						This is then propagated throughout Cloudflare's network in a matter of seconds <br/>
+						Any subsiquent request for the same resource is served by Cloudflare <br />
+						This is until Cloudflare detects a change at origin <br/>
+						This can be forced by the site admin (in the cloudflare panel) <br/>
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### Sources
+						#### And places for more information
+
+						- Coding Blocks episode [45. Caching Overview and Hardware](https://www.codingblocks.net/podcast/caching-overview-and-hardware/)
+						  - I'd recommend listening to their show, it's great!
+						- [Latency numbers that every programmer should understand](https://gist.github.com/jboner/2841832)
+						- ["Humanised" Latency numbers that every programmer should understand](https://gist.github.com/hellerbarde/2843375)
+						- [Speeding Up Your Website – Part One: Terminology](https://dev.to/dotnetcoreblog/speeding-up-your-website--part-one-terminology-4l60)
+						- [Best practices for cache control settings for your website](https://dev.to/alex_barashkov/best-practices-for-cache-control-settings-for-your-website-1obf)
+						- [Service Workers: an introduction](https://developers.google.com/web/fundamentals/primers/service-workers/)
+						  - [Service Workers example](https://github.com/Matthew-Wise/service-workers) from Matthew Wise
+						- And minify your JavaScript, folks
+					</textarea>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
