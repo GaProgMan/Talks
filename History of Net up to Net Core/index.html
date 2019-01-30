@@ -50,6 +50,7 @@
 						| Waffling Taylors	| https://wafflingtaylors.rocks/ |
 						| Dev Otaku	| https://devotaku.transistor.fm/ |
 						| Ask A Brit	| https://www.askabrit.us/ |
+						| Jay & Jay Media	| https://jayandjay.media/ |
 						|	|	|
 
 					</textarea>
@@ -63,7 +64,8 @@
 					- Richard Campbell's many talks on the history of .NET
 					- The ASP NET Community Standups
 					- My Podcast
-					- My blog on .NET Core
+					- My .NET Core blog
+					- A blog post I wrote for Audacia
 
 					<span class="photo-credit">Be sure to pull the slides from GitHub, run them (it's a node app) and us the `s` key to see the slide notes</span>
 
@@ -72,6 +74,7 @@
 						- [The History of .NET by Richard Campbell of .NET Rocks! at SSW](https://www.youtube.com/watch?v=FFCn_z7dn_A) <br/>
 						- [The History of .NET - Richard Campbell](https://vimeo.com/239969756) <br/>
 						- [ASP.NET Community Standup - Sept 2nd, 2014 - Introduction to ASP.NET vNext, how and why?](https://www.youtube.com/watch?v=1rLbT6pBtak)
+						- [What Is .NET Core?](https://www.audacia.co.uk/blog/2016/11/what-is-net-core) <br/>
 					</aside>
 				</textarea>
 			</section>
@@ -81,20 +84,25 @@
 						### In the Beginning
 						#### There was Java
 
-						- And it wasn't great
-						- But it _was_ NGWS
+						- It _wasn't_ great
+						- It _was_ the defacto enterprise language
+						- It _was_ cross plat
+						- It _wasn't_ RAD
+						- There was also C++, Python, PHP, and Ruby
 
 						<aside class="notes">
 							Back in the 90s, our only option for cross platform frameworks was the nascent JavaScript or Java. <br/>
 							Java's marketting: "Every platform, one language" <br/>
-							NGWS = [Next Generation Web Services](https://people.apache.org/~jim/NewArchitect/webrevu/2000/11_17/developers/11_17_00_4.html) (original name for .NET)
+							PHP and Ruby where more useful for browser based apps <br/>
+							C++ wasn't useful because you had to write _everything_ from the ground up <br/>
+							RAD was first developed in the 80s and _Rapid Application Development_ was first published in 1991 <br/>
 						</aside>
 					</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-						### NGWS
+						### Enter: NGWS
 						
 						![NGWS diagram](images/ngws.jpg)
 
@@ -103,7 +111,29 @@
 						- Used XML for communication
 
 						<aside class="notes">
-							NWGS was the original name for .NET Framework
+							Towards the end of the 90s, Microsoft was working on something new <br/>
+							NGWS = [Next Generation Web Services](https://people.apache.org/~jim/NewArchitect/webrevu/2000/11_17/developers/11_17_00_4.html) (original name for .NET) <br/>
+							Steve Balmer reportedly hated the name NGWS <br/>
+							"In an early presentation for NGWS, Steve Balmer said that it would allow users to access services like Spell Checkers or secure places to store Credit Card information." - like modern WebServices <br/>
+						</aside>
+					</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						### .NET
+						#### What's In a Name
+						
+						> mirrored the domain suffix of every ISP...intended to remind users that "web-enabling your software"
+
+						> was more approachable to business types... geekier names like "Universal Runtime" or "COM+ 2.0"
+						
+						> short, easy to spell, globalized well, could leverage already-owned domain names for every Microsoft product, etc.
+						
+						> actually passed legal/trademark review (surprisingly difficult!)
+
+						<aside class="notes">
+							[Source for points](https://stackoverflow.com/questions/1495287/what-does-net-stand-for-is-it-an-acronym/1495470#1495470)
 						</aside>
 					</textarea>
 			</section>
@@ -114,9 +144,9 @@
 						
 						> Every platform, one language
 
-						- .NET is announced
+						- Visual Studio.NET is announced500px
 						- Bold statement
-						- Directly opposing Java's tagline
+						- Directly opposing Java's tagli500px
 
 						<aside class="notes">
 							"This product originally developed to support enterprise developers consuming Windows" - Richard Campbell <br/>
@@ -126,27 +156,140 @@
 					</textarea>
 			</section>
 
-			<!-- Slides on:
-				 - .NET Framework 2.0
-				 - .Mono
-				 - .NET Framework 4 hitting 10 years old
-				 - 
-			-->
+			<section data-markdown>
+				<textarea data-template>
+					### Fast Forward to 2016
+
+					![](images/microsoft-heart-linux.jpg)
+					
+					- Xamarin (and Mono) is bought by Microsoft
+					- .NET Framework 4 is eight years old
+					- Balmer retires, Satya Nadella promoted (2014)
+					- Azure starts offering Linux VMs
+
+					<aside class="notes">
+						-[But What Is Mono](https://dotnetcore.show/episode-6-but-what-is-mono/) podcast episode <br/>
+
+					</aside>
+				</textarea>
+			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-						### September 2nd, 2014
+					### One step back:
+					#### September 2nd, 2014
 
-						![Scott Hunter Quote on .NET apps on Linux Servers](images/hunter-quote.jpg)
+					![Scott Hunter Quote on .NET apps on Linux Servers](images/hunter-quote.jpg)
 
-						<p class ="fragment" data-audio-src="audio/hunter-quote.mp3">
-							".NET Apps on Linux Servers"
-						</p>
+					<p class ="fragment" data-audio-src="audio/hunter-quote.mp3">
+						".NET Apps on Linux Servers"
+					</p>
 
-						<aside class="notes">
-							"This product originally developed to support enterprise developers consuming Windows" - Richard Campbell
-						</aside>
-					</textarea>
+					<aside class="notes">
+						"This product originally developed to support enterprise developers consuming Windows" - Richard Campbell
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### We Already Have .NET On Linux
+					### Right?
+
+					> I want you to be able to host ASP.NET apps on Linux servers as easily as you can on a Windows Server
+
+					- Linux VMs on Azure
+					- Docker becomes a very big thing
+					- Mono already exists, though
+					- .NET Core == cross plat rewrite, utilising .NET Standard
+					- Mono == cross plat .NET Framework
+
+					<aside class="notes">
+						- Docker isn't just a Linux technology (it's actually a BSD technology) <br/>
+						- Containerisation isn't new, either (is a technology from the 70s) <br/>
+						- .NET Core focusses on sliming things down and being modular (include just what you want) <br/>
+						- Mono is a cross plat build of .NET Framework, warts and all
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Wait! What's .NET Standard?
+
+					![](images/standard-table.jpg)
+
+					- credit and debit adhere to standards by banking industries
+					- .NET Standard is that but for .NET
+					- Think of it as an interface
+
+					<aside class="notes">
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### An Interface?
+					#### Prepare for a terrible slide
+
+					``` csharp
+					interface INetStandard_1_0
+					{
+						System;
+						System.Collections;
+						System.Colloections.Generic;
+						/* ... */
+						System.IO;
+						System.Linq;
+						System.RegularExpressions;
+						/* etc. */
+					}
+
+					interface INetStandard_1_1 : INetStandard_1_0
+					{
+						System.Collections.Concurrent;
+						System.Numerics;
+						/* etc. */
+					}
+
+					public class DotNetFramework_FourPointFive : INetStandard_1_0
+					{
+						/* Actual implementations of the APIs here */
+					}
+
+					public class DotNetFramework_FourPointSixPointOne : INetStandard_2_0
+					{
+						/* Actual implementations of the APIs here */
+					}
+					```
+
+					<aside class="notes">
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### .NET Framework vs .NET Core Cadence
+
+					- .NET Core's dev cadence is super quick
+					- we're on v2.2 of .NET Core 2 years in
+					- v3 is in preview, too
+					- .NET Framework is much slower
+					- because Windows _REQUIRES_ .NET Framework in order to run
+					- no, .NET Framework isn't going away
+
+					<aside class="notes">
+						- .NET Core V2.0 has been end of lifed <br/>
+						- [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support-policy/dotnet-core) <br/>
+						- [.NET Framework is dead](https://medium.com/@andy.watt83/the-net-framework-is-done-8aec3bbae12d) <br/>
+						- No, it's not <br/>
+						- Based on a misunderstanding of what Dustin said on [episode 3](https://dotnetcore.show/episode-3-corewf-with-dustin-metzgar/)
+						- Scott Hunter had to [personally comment on it](https://blogs.msdn.microsoft.com/dotnet/2018/10/04/update-on-net-core-3-0-and-net-framework-4-8/#how-do-we-think-of-net-framework-and-net-core-moving-forward)
+						- He has even mentioned it at conferences
+					</aside>
+				</textarea>
 			</section>
 
 			<section data-markdown>
@@ -160,7 +303,7 @@
 					- [ASP.NET Community Standup - Sept 2nd, 2014 - Introduction to ASP.NET vNext, how and why?](https://www.youtube.com/watch?v=1rLbT6pBtak)
 					- [Episode 1 - A Brief History of .NET Core](https://dotnetcore.show/episode-1-a-brief-history-of-net-core/)
 					- [.NET Core History](https://dotnetcore.gaprogman.com/2018/02/23/net-core-history/)
-					
+					- [What Is .NET Core?](https://www.audacia.co.uk/blog/2016/11/what-is-net-core)
 					<aside class="notes">
 					</aside>
 				</textarea>
@@ -177,24 +320,22 @@
 
 			<section data-markdown>
 				<textarea data-template>
-					### Thank you so very much
-					#### You've all been wonderful
-
-					<span class="side-note">Can you tell it was my first time talking to a large audience?</span>
+					![Jamie](images/twitter-avatar.png)
 					
-					<aside class="notes">
-					</aside>
+					- [@dotnetcoreshow](https://twitter.com/dotnetcoreshow)
+					- [The .NET Core Podcast](https://dotnetcore.show/)
+					- will happily answer questions here, on twitter, or at the pub
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-						![Jamie](images/twitter-avatar.png)
-						
-						- [@dotnetcoreshow](https://twitter.com/dotnetcoreshow)
-						- [The .NET Core Podcast](https://dotnetcore.show/)
-						- will happily answer questions here, or on twitter
-					</textarea>
+					### Thank you so very much
+					#### You've all been wonderful
+					
+					<aside class="notes">
+					</aside>
+				</textarea>
 			</section>
 		</div>
 	</div>

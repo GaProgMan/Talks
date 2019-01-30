@@ -5,3 +5,7 @@ section span.photo-credit {
 section span.side-note {
     font-size: 36px;
 }
+
+.reveal pre code {
+    max-height: 500px;
+}
