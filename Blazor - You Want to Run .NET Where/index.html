@@ -311,7 +311,7 @@
 							The SPA frameworks promised that making single page applications would be easy <br />
 							The downside: the client needs to download <em>lots of JS</em> <br />
 							Right or wrong, I've seen SPAs that require 20+ MB of JS to be downloaded before they would run <br />
-							They'd been minified and unglyfied, too <br />
+							They'd been minified and uglyfied, too <br />
 						</aside>
 				</textarea>
 			</section>
@@ -328,7 +328,7 @@
 						
 						<aside class="notes">
 							It was originally severly limited in what it could do <br />
-							It also required cross compilation of .NET to WebAssembly <br />
+							It also required cross compilation of .NET (which was written in C) to WebAssembly <br />
 							But once that was done, it loaded and ran in your browser <br />
 							As long as you had a modern (i.e not Microsoft browser) <br />
 							And didn't mind waiting for the DLLs to download <br />
@@ -365,7 +365,7 @@
 						- It was written in C
 						  - Pretty darn good C, too
 						- It already powered the Unity3D game engine, too
-						- Why not x-compile it to WebAssembly
+						- Why not x-compile it to WebAssembly?
 						
 						<aside class="notes">
 
@@ -383,7 +383,7 @@
 						<aside class="notes">
 							On the same weekend that Abstract Sausage Factory where busy losing Hack24 - Paul Seal know what I'm on about - Web Assembly was released <br />
 							WebAssembly is a runtime for running compiled applications in the browser <br />
-							The runtime sets up a similar Sanbox to JavaScript, and allows you to run binaries at near native speed <br />
+							The runtime sets up a similar Sandbox to JavaScript, and allows you to run binaries at near native speed <br />
 							Also, Mono was cross compiled to WebAssembly
 						</aside>
 				</textarea>
@@ -477,6 +477,9 @@
 						</div>
 					</li>
 					<li>
+						<div>
+							<time>Feb 5th<sup>th</sup>, 2019</time>ASP.NET Community Standup - Post NDC Blazor Show
+						</div>
 					</li>
 				</ol>
 				<div class="arrows">
@@ -498,7 +501,7 @@
 
 						<span class="photo-credit">Source: [Web Apps can’t really do *that*, can they? - Steve Sanderson](https://www.youtube.com/watch?v=MiLAE6HMr10)</span>
 						<aside class="notes">
-							If you haven't seen this talk, I woudl definitely recommend it. <br/>
+							If you haven't seen this talk, I would definitely recommend it. <br/>
 							This was <em>huge</em>, as Steve showed off how you could load .NET stuff in the browser <br/>
 						</aside>
 				</textarea>
@@ -551,9 +554,11 @@
 
 			<section data-markdown>
 				<textarea data-template>
-						### Components
+						### Razor Components
+						#### Used to be called Blazor Components
 
 						- Are cshtml files
+						  - Semantically similar to Razor Pages
 						- inline functions for properties and members
 						- `[Parameter]`
 						
@@ -680,7 +685,7 @@
 					### Demo
 					#### ???
 
-					- Related to the festival
+					- Related to the meetup
 					- Uses beta software
 					- Might not be 100% stable
 					
@@ -703,9 +708,8 @@
 					  - Ed Charbeneau of Telerik talking through recent stuff
 					- [Episode 5 of The .NET Core Podcast](https://dotnetcore.show/episode-5-blazor-with-ed-charbeneau/)
 					  - I interviewed Ed about Blazor
-					- [Umbrcao Headless .NET Client](https://our.umbraco.com/documentation/Umbraco-Cloud/Headless/Headless-Net-Client/)
+					- [Umbraco Headless .NET Client](https://our.umbraco.com/documentation/Umbraco-Cloud/Headless/Headless-Net-Client/)
 					  - The docs I used to get UmBlazor up and running
-					- 
 					
 					<aside class="notes">
 					</aside>
