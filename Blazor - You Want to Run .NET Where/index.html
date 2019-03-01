@@ -729,14 +729,29 @@
 					### Demo
 					#### ???
 
-					- Related to the meetup
 					- Uses beta software
 					- Might not be 100% stable
 					
 					<aside class="notes">
-						Umbraco Headless x Blazor <br/ >
+						Umbraco Headless x Blazor <br />
 						https://gaprogmans-affable-beaver.s1.umbraco.io/umbraco/#/ <br />
 						Have the UmBlazor open in VS Code and walk through it
+					</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### So Can I Statically Host It?
+
+					- Traditional .NET apps needed big servers
+					- .NET Core needs smaller, less powerful servers
+					- Blazor can be hosted Statically
+					- Let's take a look
+
+					<aside class="notes">
+						`dotnet new blazor --name staticSite`
+						`dotnet publish -c Release -o ./dist`
 					</aside>
 				</textarea>
 			</section>
