@@ -84,7 +84,8 @@
 
         setTimeout(() => {
           isElementInViewport(firstItem) ? setBtnState(arrowPrev) : setBtnState(arrowPrev, false);
-          isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext, false);
+          //isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext);
+          arrowNext.disabled = false;
         }, 1100);
 
         counter++;
