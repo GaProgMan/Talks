@@ -598,6 +598,22 @@
 
 			<section data-markdown>
 				<textarea data-template>
+						### What About .NET Core 3.0
+						#### or Do You _NEED_ JSON.NET?
+
+						- `System.Text.Json.JsonDocument`
+						- Provided in .NET Core 3.0 Preview 2
+						- Useful for framework provided JSON parsing
+						- `public static System.Text.Json.JsonDocument Parse (string json, System.Text.Json.JsonReaderOptions readerOptions = null);`
+
+						<aside class="notes">
+							- [discussion on GitHub which lead to it's creation](https://github.com/dotnet/corefx/issues/33115)
+						</aside>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
 						### Razor Components
 						#### Used to be called Blazor Components
 
